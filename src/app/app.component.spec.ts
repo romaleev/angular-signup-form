@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import { AppComponent } from '#src/app/app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { InputComponent } from './input/input.component';
+import { InputComponent } from '#src/app/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { I18N_PROVIDERS } from './app.module';
+import { I18N_PROVIDERS } from '#src/app/app.module';
 import { I18NextModule } from 'angular-i18next';
-import { RegisterService } from '../services/register.service';
+import { RegisterService } from '#src/services/register.service';
 import { of, throwError } from 'rxjs';
+import i18n, { t } from 'i18next';
+import i18nextConf from '#root/i18next.config';
+
+(async () => await i18n.init(i18nextConf))();
 
 describe('AppComponent', () => {
   beforeEach(() => {
@@ -59,7 +63,9 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     expect(component.loading).toBeFalsy();
-    expect(compiled.querySelector('#success')?.textContent).toContain('Registered successfully');
+    expect(compiled.querySelector('#success')?.textContent).toContain(
+      t('registerForm.submitSuccess')
+    );
   });
 
   it('should display message on error', () => {
@@ -91,6 +97,6 @@ describe('AppComponent', () => {
     fixture.detectChanges();
 
     expect(component.loading).toBeFalsy();
-    expect(compiled.querySelector('#error')?.textContent).toContain('Something went wrong');
+    expect(compiled.querySelector('#error')?.textContent).toContain(t('registerForm.submitError'));
   });
 });

@@ -1,12 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputComponent } from './input.component';
+import { InputComponent } from '#src/app/input/input.component';
 import { I18NextModule } from 'angular-i18next';
-import { I18N_PROVIDERS } from '../app.module';
+import { I18N_PROVIDERS } from '#src/app/app.module';
+import i18n, { t } from 'i18next';
+import i18nextConf from '#root/i18next.config';
+
+(async () => await i18n.init(i18nextConf))();
 
 describe('InputComponent', () => {
   let component: InputComponent;
   let fixture: ComponentFixture<InputComponent>;
+  const title = t('registerForm.firstName');
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -28,8 +33,8 @@ describe('InputComponent', () => {
   });
 
   it('should correctly render the passed @Input "title" value', () => {
-    component.title = 'First Name';
-    component.onChange('First Name');
+    component.title = title;
+    component.onChange(title);
     component.onTouched();
     fixture.detectChanges();
 
@@ -54,12 +59,14 @@ describe('InputComponent', () => {
   });
 
   it('should correctly render the passed @Input "errors" and "submitted" values', () => {
-    component.title = 'First Name';
+    component.title = title;
     component.submitted = true;
     component.errors = { required: true };
     fixture.detectChanges();
 
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.invalid-feedback').textContent).toBe('First Name is required');
+    expect(compiled.querySelector('.invalid-feedback').textContent).toBe(
+      t('errors.required', { title })
+    );
   });
 });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PasswordValidator } from '../helpers/password.validator';
-import { RegisterService } from '../services/register.service';
+import { PasswordValidator } from '#src/helpers/password.validator';
+import { RegisterService } from '#src/services/register.service';
 import { first } from 'rxjs/operators';
 
 @Component({

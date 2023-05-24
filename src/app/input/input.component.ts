@@ -1,6 +1,6 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
-import { InputErrors } from '../../models/input.errors';
+import { InputErrors } from '#src/models/input.errors';
 
 @Component({
   selector: 'app-input',

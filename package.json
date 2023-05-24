@@ -13,12 +13,18 @@
     "preinstall": "rm -rf .git/hooks",
     "prepare": "husky install ./scripts/.husky && chmod ug+x scripts/.husky/* && playwright install"
   },
+  "author": "Roman Malieiev <aromaleev@gmail.com>",
+  "type": "module",
   "private": false,
   "lint-staged": {
     "src/**/*.ts": [
       "pretty-quick --staged --verbose",
       "eslint --fix"
     ]
+  },
+  "imports": {
+    "#root/*": "./*",
+    "#src/*": "./src/*"
   },
   "dependencies": {
     "@angular/animations": "^16.0.2",

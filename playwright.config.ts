@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import i18nextConf from './i18next.config';
+import i18nextConf from '#root/i18next.config';
 
 /**
  * @see https://playwright.dev/docs/test-configuration

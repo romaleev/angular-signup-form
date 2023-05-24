@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { I18NEXT_SERVICE, I18NextModule, ITranslationService } from 'angular-i18next';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
-import { InputComponent } from './input/input.component';
-import i18nextConf from '../../i18next.config';
+import { AppComponent } from '#src/app/app.component';
+import { InputComponent } from '#src/app/input/input.component';
+import i18nextConf from '#root/i18next.config';
 
 export function appInit(i18next: ITranslationService) {
   return () => i18next.init(i18nextConf);

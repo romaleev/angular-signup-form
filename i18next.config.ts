@@ -1,4 +1,4 @@
-import enLanguage from './src/assets/locales/en.language.json';
+import enLanguage from '#src/assets/locales/en.language';
 
 export default {
   supportedLngs: ['en'],

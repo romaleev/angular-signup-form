@@ -1,8 +1,8 @@
 import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { RegisterService } from './register.service';
-import { apiEnvironment } from '../environments/api.environment';
+import { RegisterService } from '#src/services/register.service';
+import { apiEnvironment } from '#src/environments/api.environment';
 
 describe('RegisterService', () => {
   let injector: TestBed;
