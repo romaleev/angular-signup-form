@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputComponent } from '#src/app/input/input.component';
+import { InputComponent } from '#src/components/input/input.component';
 import { I18NextModule } from 'angular-i18next';
-import { I18N_PROVIDERS } from '#src/app/app.module';
+import { I18N_PROVIDERS } from '#src/helpers/i18next';
 import i18n, { t } from 'i18next';
 import i18nextConf from '#root/i18next.config';
 
@@ -15,8 +15,7 @@ describe('InputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [InputComponent],
-      imports: [I18NextModule.forRoot()],
+      imports: [I18NextModule.forRoot(), InputComponent],
       providers: [I18N_PROVIDERS]
     });
     fixture = TestBed.createComponent(InputComponent);

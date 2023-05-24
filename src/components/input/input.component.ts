@@ -1,6 +1,8 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 import { InputErrors } from '#src/models/input.errors';
+import { I18NextModule } from 'angular-i18next';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-input',
@@ -12,16 +14,18 @@ import { InputErrors } from '#src/models/input.errors';
       multi: true,
       useExisting: forwardRef(() => InputComponent)
     }
-  ]
+  ],
+  standalone: true,
+  imports: [NgClass, NgIf, I18NextModule]
 })
 export class InputComponent implements ControlValueAccessor {
   // Use the @Input() decorator in a child component or directive to let Angular know that a property in that component can receive its value from its parent component.
 
-  @Input() formControlName = '';
-  @Input() title = '';
-  @Input() type = '';
-  @Input() submitted = false;
-  @Input() errors: ValidationErrors | InputErrors | null = [];
+  @Input() public formControlName = '';
+  @Input() public title = '';
+  @Input() public type = '';
+  @Input() public submitted = false;
+  @Input() public errors: ValidationErrors | InputErrors | null = [];
 
   public value = '';
   public isDisabled = false;

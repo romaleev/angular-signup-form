@@ -1,16 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { PasswordValidator } from '#src/helpers/password.validator';
 import { RegisterService } from '#src/services/register.service';
 import { first } from 'rxjs/operators';
+import { I18NextModule } from 'angular-i18next';
+import { NgIf } from '@angular/common';
+import { InputComponent } from '#src/components/input/input.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  standalone: true,
+  imports: [ReactiveFormsModule, InputComponent, NgIf, I18NextModule]
 })
 export class AppComponent implements OnInit {
-  registerForm: FormGroup = this.formBuilder.group({
+  public registerForm: FormGroup = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     email: [
@@ -19,10 +30,10 @@ export class AppComponent implements OnInit {
     ],
     password: ['', [Validators.required, Validators.minLength(8)]]
   });
-  submitted = false;
-  success = false;
-  error = false;
-  loading = false;
+  public submitted = false;
+  public success = false;
+  public error = false;
+  public loading = false;
 
   constructor(private formBuilder: FormBuilder, private registerService: RegisterService) {}
 

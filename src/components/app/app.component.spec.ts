@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
-import { AppComponent } from '#src/app/app.component';
+import { AppComponent } from '#src/components/app/app.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { InputComponent } from '#src/app/input/input.component';
+import { InputComponent } from '#src/components/input/input.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { I18N_PROVIDERS } from '#src/app/app.module';
+import { I18N_PROVIDERS } from '#src/helpers/i18next';
 import { I18NextModule } from 'angular-i18next';
 import { RegisterService } from '#src/services/register.service';
 import { of, throwError } from 'rxjs';
@@ -15,8 +15,13 @@ import i18nextConf from '#root/i18next.config';
 describe('AppComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent, InputComponent],
-      imports: [HttpClientTestingModule, ReactiveFormsModule, I18NextModule.forRoot()],
+      imports: [
+        HttpClientTestingModule,
+        ReactiveFormsModule,
+        I18NextModule.forRoot(),
+        InputComponent,
+        AppComponent
+      ],
       providers: [I18N_PROVIDERS]
     });
   });
