@@ -1,27 +1,71 @@
 # AngularSignupForm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+## Task
+
+- Build a single page app with a sign-up form.
+- The form should allow users to enter first name, last name, email, and password.
+- All fields are required.
+- Password validation:
+  - Should be a minimum of eight characters,
+  - Should contain lower and uppercase letters,
+  - Should not contain user’s first or last name.
+- Email should be validated but there are various ways of accomplishing this. So, show us what
+  you consider as a proper email validation.
+- The form should send a POST request to https://demo-api.now.sh/users. The request body
+  example:
+
+```
+{
+    firstName: "Thomas",
+    lastName: "Shelby",
+    email: "thomas@shelby.co.uk"
+}
+```
+
+## Implementation
+
+Implemented accordingly with the specification.
+
+Additional improvements implemented:
+
+- Unit `Karma` and end-to-end `Playwright` tests with **100%** test coverage
+- Email validation using regexp pattern
+- Bootstrap styling
+- Git pre-commit hook which runs tests and code quality checks / autocorrect: `husky`, `lint-staged`, `eslint` and `prettier`
+- Internationalization using `i18next`
+
+## Installation
+
+Run `npm install -f` to install dependencies.
+
+Force option used due to version incompatibility of the latest Angular 16 and `angular-i18next`.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm start` for a dev server.
 
-## Code scaffolding
+You will be navigated to `http://localhost:4200/`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Run tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute unit and end-to-end tests.
 
-## Running end-to-end tests
+## Run unit tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run `npm run unit` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
+## Run end-to-end tests
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `npm run e2e` to execute the end-to-end tests via [Playwright](https://playwright.dev).
+
+Make sure the development server up and running.
+
+## Unit test coverage
+
+Run `npm run coverage` to generate [coverage report](./coverage/angular-signup-form/index.html).
