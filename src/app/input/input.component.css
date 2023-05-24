@@ -1,0 +1,11 @@
+.input input.form-control {
+  height: 3em;
+  border: none;
+  border-radius: 0;
+  background-color: #f2f2f2 !important;
+  font-size: 1.1em;
+}
+.input label {
+  font-weight: bold;
+  text-transform: uppercase;
+}

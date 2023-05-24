@@ -1,4 +1,4 @@
-<div>
+<div class="input">
   <label [for]="formControlName">{{ title }}</label>
   <input
     #formControl
@@ -10,7 +10,7 @@
     [disabled]="isDisabled"
     class="form-control"
     [type]="type || 'text'"
-    [ngClass]="{ 'is-invalid': submitted && errors }"
+    [ngClass]="{ 'is-invalid': submitted && errors, 'is-valid': !errors }"
   />
   <div *ngIf="submitted && errors" class="invalid-feedback">
     <div *ngIf="errors.required">{{ 'errors.required' | i18next : { title } }}</div>

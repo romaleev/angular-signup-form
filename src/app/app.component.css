@@ -1,13 +1,34 @@
 .card-header {
   color: white;
-  background-color: #007bff;
+  background-color: #4d148c;
 }
 .card-body {
-  background-color: aliceblue;
+  background-color: transparent;
 }
 .card {
   width: 30em;
+  border-radius: 0;
+}
+.card h5 {
+  text-transform: uppercase;
+  text-align: center;
 }
 .alert {
   margin: 1em 0 0 0;
+  font-size: 1.1em;
+}
+.btn {
+  color: white;
+  background-color: #ff6200;
+  font-weight: bold;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: 0 1.5em;
+  min-height: 3em;
+}
+.btn:hover {
+  box-shadow: 0 0 0 2px #e45528;
+  background-color: #e45528;
 }
