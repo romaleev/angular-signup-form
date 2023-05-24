@@ -1,6 +1,6 @@
 {
   "name": "angular-signup-form",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
@@ -9,12 +9,11 @@
     "coverage": "ng test --no-watch --code-coverage",
     "unit": "ng test --watch=false",
     "e2e": "playwright test",
-    "lint": "ng lint",
+    "lint": "lint-staged",
     "preinstall": "rm -rf .git/hooks",
-    "prepare": "husky install ./scripts/.husky && chmod ug+x scripts/.husky/*",
-    "pre-commit": "npm run husky:pre-commit"
+    "prepare": "husky install ./scripts/.husky && chmod ug+x scripts/.husky/* && playwright install"
   },
-  "private": true,
+  "private": false,
   "lint-staged": {
     "src/**/*.ts": [
       "pretty-quick --staged --verbose",
