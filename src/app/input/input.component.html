@@ -1,0 +1,22 @@
+<div>
+  <label [for]="formControlName">{{ title }}</label>
+  <input
+    #formControl
+    [id]="formControlName"
+    type="text"
+    [value]="value"
+    (input)="onChange(formControl.value)"
+    (blur)="onTouched()"
+    [disabled]="isDisabled"
+    class="form-control"
+    [type]="type || 'text'"
+    [ngClass]="{ 'is-invalid': submitted && errors }"
+  />
+  <div *ngIf="submitted && errors" class="invalid-feedback">
+    <div *ngIf="errors.required">{{ 'errors.required' | i18next : { title } }}</div>
+    <div *ngIf="errors.pattern">{{ 'errors.pattern' | i18next : { title } }}</div>
+    <div *ngIf="errors.minlength">{{ 'errors.minLength' | i18next : { title } }}</div>
+    <div *ngIf="errors.containName">{{ 'errors.containName' | i18next : { title } }}</div>
+    <div *ngIf="errors.caseLetters">{{ 'errors.caseLetters' | i18next : { title } }}</div>
+  </div>
+</div>
