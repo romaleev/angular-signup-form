@@ -28,7 +28,7 @@ Implemented accordingly with the specification.
 
 Additional improvements implemented:
 
-- Unit `Karma` and end-to-end `Playwright` tests with **100%** test coverage
+- Unit `Karma` and end-to-end `Playwright` tests with **100%** coverage
 - Email validation using regexp pattern
 - Bootstrap styling
 - Git pre-commit hook which runs tests and code quality checks / autocorrect: `husky`, `lint-staged`, `eslint` and `prettier`
