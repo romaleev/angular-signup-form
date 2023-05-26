@@ -1,10 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { InputComponent } from '#src/components/input/input.component';
-import { I18NextModule } from 'angular-i18next';
-import { I18N_PROVIDERS } from '#src/helpers/i18next';
-import i18n, { t } from 'i18next';
 import i18nextConf from '#root/i18next.config';
+import { InputComponent } from '#src/components/input/input.component';
+import I18N_PROVIDERS from '#src/helpers/i18next.provider';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { I18NextModule } from 'angular-i18next';
+import i18n, { t } from 'i18next';
 
 (async () => await i18n.init(i18nextConf))();
 

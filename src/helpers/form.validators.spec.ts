@@ -1,7 +1,7 @@
-import { PasswordValidator } from '#src/helpers/password.validator';
+import { PasswordValidator } from '#src/helpers/form.validators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-describe('Form Validator', () => {
+describe('Form Validators', () => {
   const formBuilder = new FormBuilder();
 
   it('should validate correct form', () => {

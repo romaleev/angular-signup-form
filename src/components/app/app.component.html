@@ -8,7 +8,7 @@
             formControlName="firstName"
             title="{{ 'registerForm.firstName' | i18next }}"
             [submitted]="submitted"
-            [errors]="fields['firstName'].errors"
+            [errors]="controls['firstName'].errors"
           >
           </app-input>
         </div>
@@ -19,7 +19,7 @@
             formControlName="lastName"
             title="{{ 'registerForm.lastName' | i18next }}"
             [submitted]="submitted"
-            [errors]="fields['lastName'].errors"
+            [errors]="controls['lastName'].errors"
           >
           </app-input>
         </div>
@@ -30,7 +30,7 @@
             formControlName="email"
             title="{{ 'registerForm.email' | i18next }}"
             [submitted]="submitted"
-            [errors]="fields['email'].errors"
+            [errors]="controls['email'].errors"
           >
           </app-input>
         </div>
@@ -42,7 +42,7 @@
             title="{{ 'registerForm.password' | i18next }}"
             type="password"
             [submitted]="submitted"
-            [errors]="fields['password'].errors"
+            [errors]="controls['password'].errors"
           >
           </app-input>
         </div>

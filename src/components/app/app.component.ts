@@ -1,17 +1,17 @@
+import { InputComponent } from '#src/components/input/input.component';
+import { EmailPattern, PasswordValidator } from '#src/helpers/form.validators';
+import { RegisterService } from '#src/services/register.service';
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormGroup,
-  Validators,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  Validators
 } from '@angular/forms';
-import { PasswordValidator } from '#src/helpers/password.validator';
-import { RegisterService } from '#src/services/register.service';
-import { first } from 'rxjs/operators';
 import { I18NextModule } from 'angular-i18next';
-import { NgIf } from '@angular/common';
-import { InputComponent } from '#src/components/input/input.component';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -24,10 +24,7 @@ export class AppComponent implements OnInit {
   public registerForm: FormGroup = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: [
-      '',
-      [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
-    ],
+    email: ['', [Validators.required, Validators.pattern(EmailPattern)]],
     password: ['', [Validators.required, Validators.minLength(8)]]
   });
   public submitted = false;
@@ -43,8 +40,8 @@ export class AppComponent implements OnInit {
     this.registerForm.setValidators(PasswordValidator(password, [firstName, lastName]));
   }
 
-  // convenience getter for easy access to form fields
-  get fields(): { [p: string]: AbstractControl } {
+  // convenience getter for easy access to form controls
+  get controls(): { [control: string]: AbstractControl } {
     return this.registerForm.controls;
   }
 

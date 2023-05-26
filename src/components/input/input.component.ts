@@ -1,8 +1,8 @@
-import { Component, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
 import { InputErrors } from '#src/models/input.errors';
-import { I18NextModule } from 'angular-i18next';
 import { NgClass, NgIf } from '@angular/common';
+import { Component, Input, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';
+import { I18NextModule } from 'angular-i18next';
 
 @Component({
   selector: 'app-input',

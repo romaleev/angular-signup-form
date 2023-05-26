@@ -1,10 +1,10 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export function PasswordValidator(
-  passwordControl: AbstractControl,
-  excludeControls: AbstractControl[]
-): ValidatorFn {
-  return (): ValidationErrors | null => {
+export const EmailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+
+export const PasswordValidator =
+  (passwordControl: AbstractControl, excludeControls: AbstractControl[]): ValidatorFn =>
+  (): ValidationErrors | null => {
     if (
       passwordControl.errors &&
       !passwordControl.errors['containName'] &&
@@ -32,4 +32,3 @@ export function PasswordValidator(
     passwordControl.setErrors(null);
     return null;
   };
-}

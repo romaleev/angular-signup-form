@@ -36,7 +36,7 @@ Additional improvements implemented:
 
 ## Installation
 
-Run `npm install -f` to install dependencies.
+Run `npm install --force` to install dependencies.
 
 Force option used due to version incompatibility of the latest Angular 16 and `angular-i18next`.
 
@@ -50,7 +50,7 @@ The application will automatically reload if you change any of the source files.
 
 ## Build
 
-Run `npm build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Run tests
 
@@ -64,8 +64,18 @@ Run `npm run unit` to execute the unit tests via [Karma](https://karma-runner.gi
 
 Run `npm run e2e` to execute the end-to-end tests via [Playwright](https://playwright.dev).
 
-Make sure the development server up and running.
+Make sure the development server is up and running.
 
 ## Unit test coverage
 
 Run `npm run coverage` to generate [coverage report](./coverage/angular-signup-form/index.html).
+
+## Run code quality checks
+
+Run `npm run lint` for code quality checks.
+
+Run `npm run lintfix` for code quality fixes. It happens automatically in pre-commit hook.
+
+## Update library versions
+
+Run `npm run update` to update libraries to the latest versions.

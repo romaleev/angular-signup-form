@@ -1,14 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from '#src/components/app/app.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { InputComponent } from '#src/components/input/input.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { I18N_PROVIDERS } from '#src/helpers/i18next';
-import { I18NextModule } from 'angular-i18next';
-import { RegisterService } from '#src/services/register.service';
-import { of, throwError } from 'rxjs';
-import i18n, { t } from 'i18next';
 import i18nextConf from '#root/i18next.config';
+import { AppComponent } from '#src/components/app/app.component';
+import { InputComponent } from '#src/components/input/input.component';
+import I18N_PROVIDERS from '#src/helpers/i18next.provider';
+import { RegisterService } from '#src/services/register.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { I18NextModule } from 'angular-i18next';
+import i18n, { t } from 'i18next';
+import { of, throwError } from 'rxjs';
 
 (async () => await i18n.init(i18nextConf))();
 
