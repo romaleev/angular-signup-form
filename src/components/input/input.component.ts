@@ -1,4 +1,4 @@
-import { InputErrors } from '#src/models/input.errors';
+import { InputErrors } from '#src/models';
 import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ValidationErrors } from '@angular/forms';

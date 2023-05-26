@@ -1,5 +1,5 @@
-import { apiEnvironment } from '#src/environments/api.environment';
-import { RegisterForm } from '#src/models/register.form';
+import { apiEnvironment } from '#src/environments';
+import { RegisterForm } from '#src/models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

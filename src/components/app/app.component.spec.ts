@@ -2,6 +2,7 @@ import i18nextConf from '#root/i18next.config';
 import { AppComponent } from '#src/components/app/app.component';
 import { InputComponent } from '#src/components/input/input.component';
 import I18N_PROVIDERS from '#src/helpers/i18next.provider';
+import { validUser } from '#src/mocks';
 import { RegisterService } from '#src/services/register.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
@@ -57,10 +58,10 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const component = fixture.componentInstance;
 
-    component.registerForm.controls['firstName'].setValue('Roman');
-    component.registerForm.controls['lastName'].setValue('M');
-    component.registerForm.controls['email'].setValue('abc@aa.com');
-    component.registerForm.controls['password'].setValue('abcdefgK');
+    component.registerForm.controls['firstName'].setValue(validUser.firstName);
+    component.registerForm.controls['lastName'].setValue(validUser.lastName);
+    component.registerForm.controls['email'].setValue(validUser.email);
+    component.registerForm.controls['password'].setValue(validUser.password);
 
     expect(component.registerForm.valid).toBeTruthy();
 
@@ -91,10 +92,10 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     const component = fixture.componentInstance;
 
-    component.registerForm.controls['firstName'].setValue('Roman');
-    component.registerForm.controls['lastName'].setValue('M');
-    component.registerForm.controls['email'].setValue('abc@aa.com');
-    component.registerForm.controls['password'].setValue('abcdefgK');
+    component.registerForm.controls['firstName'].setValue(validUser.firstName);
+    component.registerForm.controls['lastName'].setValue(validUser.lastName);
+    component.registerForm.controls['email'].setValue(validUser.email);
+    component.registerForm.controls['password'].setValue(validUser.password);
 
     expect(component.registerForm.valid).toBeTruthy();
 

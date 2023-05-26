@@ -11,7 +11,6 @@ import {
   Validators
 } from '@angular/forms';
 import { I18NextModule } from 'angular-i18next';
-import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -56,20 +55,17 @@ export class AppComponent implements OnInit {
     }
 
     this.loading = true;
-    this.registerService
-      .register(this.registerForm.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.loading = false;
-          this.success = true;
-          this.submitted = false;
-          this.registerForm.reset();
-        },
-        error: () => {
-          this.loading = false;
-          this.error = true;
-        }
-      });
+    this.registerService.register(this.registerForm.value).subscribe({
+      next: () => {
+        this.loading = false;
+        this.success = true;
+        this.submitted = false;
+        this.registerForm.reset();
+      },
+      error: () => {
+        this.loading = false;
+        this.error = true;
+      }
+    });
   }
 }
