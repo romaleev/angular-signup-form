@@ -11,7 +11,7 @@
   - Should not contain user’s first or last name.
 - Email should be validated but there are various ways of accomplishing this. So, show us what
   you consider as a proper email validation.
-- The form should send a POST request to https://demo-api.now.sh/users. The request body
+- The form should sequentially send GET and POST requests to https://demo-api.now.sh/users. The request body
   example:
 
 ```

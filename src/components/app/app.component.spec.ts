@@ -46,6 +46,9 @@ describe('AppComponent', () => {
         {
           provide: RegisterService,
           useValue: {
+            getUserInfo() {
+              return of({});
+            },
             register() {
               return of({});
             }
@@ -80,6 +83,9 @@ describe('AppComponent', () => {
         {
           provide: RegisterService,
           useValue: {
+            getUserInfo() {
+              return throwError(() => new Error());
+            },
             register() {
               return throwError(() => new Error());
             }

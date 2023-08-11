@@ -9,6 +9,7 @@
     "coverage": "ng test --no-watch --code-coverage",
     "unit": "ng test --watch=false",
     "e2e": "playwright test",
+    "e2e-debug": "playwright test --debug",
     "lint": "ng lint",
     "lintfix": "eslint --fix 'src/**/*.ts' && prettier --write 'src/**/*.ts'",
     "update": "npm i -f npm-check-updates@latest --save-dev && ncu -u --reject jasmine-core && npm i -f",

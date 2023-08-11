@@ -11,4 +11,8 @@ export class RegisterService {
   register(user: RegisterForm): Observable<object> {
     return this.http.post(`${apiEnvironment.apiUrl}`, user);
   }
+
+  getUserInfo(): Observable<object> {
+    return this.http.get(`${apiEnvironment.apiUrl}`);
+  }
 }

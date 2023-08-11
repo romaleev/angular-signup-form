@@ -11,6 +11,7 @@ import {
   Validators
 } from '@angular/forms';
 import { I18NextModule } from 'angular-i18next';
+import { ObservableInput, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit {
     return this.registerForm.controls;
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     this.submitted = true;
     this.success = false;
     this.error = false;
@@ -55,17 +56,42 @@ export class AppComponent implements OnInit {
     }
 
     this.loading = true;
-    this.registerService.register(this.registerForm.value).subscribe({
-      next: () => {
-        this.loading = false;
-        this.success = true;
-        this.submitted = false;
-        this.registerForm.reset();
-      },
-      error: () => {
-        this.loading = false;
-        this.error = true;
-      }
-    });
+
+    // option 1: using promises
+    /*try {
+      const user = await (this.registerService
+        .getUserInfo().toPromise());
+      await (this.registerService
+        .register(this.registerForm.value).toPromise());
+      this.loading = false;
+      this.success = true;
+      this.submitted = false;
+      this.registerForm.reset();
+    } catch (error) {
+      this.loading = false;
+      this.error = true;
+    }*/
+
+    // option 2: using observables
+    this.registerService
+      .getUserInfo()
+      .pipe(
+        switchMap(
+          (value, index): ObservableInput<object> =>
+            this.registerService.register(this.registerForm.value)
+        )
+      )
+      .subscribe({
+        next: () => {
+          this.loading = false;
+          this.success = true;
+          this.submitted = false;
+          this.registerForm.reset();
+        },
+        error: () => {
+          this.loading = false;
+          this.error = true;
+        }
+      });
   }
 }

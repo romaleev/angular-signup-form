@@ -6,7 +6,7 @@
         <div class="form-group col">
           <app-input
             formControlName="firstName"
-            title="{{ 'registerForm.firstName' | i18next }}"
+            [title]="'registerForm.firstName' | i18next"
             [submitted]="submitted"
             [errors]="controls['firstName'].errors"
           >
@@ -17,7 +17,7 @@
         <div class="form-group col">
           <app-input
             formControlName="lastName"
-            title="{{ 'registerForm.lastName' | i18next }}"
+            [title]="'registerForm.lastName' | i18next"
             [submitted]="submitted"
             [errors]="controls['lastName'].errors"
           >
@@ -28,7 +28,7 @@
         <div class="form-group col">
           <app-input
             formControlName="email"
-            title="{{ 'registerForm.email' | i18next }}"
+            [title]="'registerForm.email' | i18next"
             [submitted]="submitted"
             [errors]="controls['email'].errors"
           >
@@ -39,8 +39,8 @@
         <div class="form-group col">
           <app-input
             formControlName="password"
-            title="{{ 'registerForm.password' | i18next }}"
             type="password"
+            [title]="'registerForm.password' | i18next"
             [submitted]="submitted"
             [errors]="controls['password'].errors"
           >
